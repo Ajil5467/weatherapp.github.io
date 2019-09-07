@@ -4,130 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- font awesome -->
+
   <script src="https://kit.fontawesome.com/7e5f32b196.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="styletest.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styletest.css">
+  <script src="apptest.js"></script>
+
 
   <title>Weather app</title>
 </head>
 
 <body>
-
-
-
-
-
   <div id="banner">
     <div id="cloud-scroll"></div>
   </div>
-
-
-
-
-
-
   <section id="title" style="top: 0;">
-  <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-       <a class="navbar-brand" href="">myWeather</a>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav ml-auto">
-           <li class="nav-item">
-             <a class="nav-link" href=" ">about me</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href=" ">contact</a>
-           </li>
-         </ul>
-       </div>
-     </nav>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">myWeather</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href=" ">about me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=" ">contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
 
-  <div class="container my-5 mx-auto">
-
-    <!-- <h1 class="text-muted text-center my-4">Weather app</h1> -->
+      <div class="container my-5 mx-auto">
 
 
-    <div class=search>
+
+        <div class=search>
 
 
-      <form class="change-location my-4 text-center text-muted">
-        <!--<label for="city">Enter a location for weather information</label>-->
-        <input type="text" name="city" placeholder="Enter a location for weather information" class="form-control p-4">
-      </form>
-    </div>
+          <form class="change-location my-4 text-center text-muted">
 
-    <div class=button>
-      <button style="margin-top: -5%;" type="button" class="btn btn-light btn-lg btn-block">search</button>
-    </div>
+            <input type="text" name="city" placeholder="Enter a location for weather information" class="form-control p-4">
+          </form>
+        </div>
+
+        <div class=button>
+          <button style="margin-top: -5%;" type="button" class="btn btn-primary btn-lg btn-block">search</button>
+        </div>
         <br>
 
-    <div class=search_button>
+        <div class=search_button>
 
-      <div class="card shadow-lg rounded d-none ">
-        <img src="https://via.placeholder.com/400x300" class="time card-img-top">
-        <div class="icon bg-light mx-auto text-center">
-      </div>
-      <div class="text-muted text-uppercase text-center details  ">
-        <h5 class="my-3">City name</h5>
-        <div class="my-3">Weather condition</div>
-        <div class="display-4 my-4">
-          <span>temp</span>
-          <span>&deg;C</span>
+          <div class="card shadow-lg rounded d-none ">
+            <img src="https://via.placeholder.com/400x300" class="time card-img-top">
+            <div class="icon bg-light mx-auto text-center">
+            </div>
+            <div class="text-muted text-uppercase text-center details  ">
+              <h5 class="my-3">City name</h5>
+              <div class="my-3">Weather condition</div>
+              <div class="display-4 my-4">
+                <span>temp</span>
+                <span>&deg;C</span>
+              </div>
+            </div>
+
+          </div>
+
         </div>
+
       </div>
 
+      <footer id="footer">
+        <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-github"></i>
 
+        <p>made with ❤️ A J I L</p>
 
-
-
-        <!-- <img src="  " alt=""> -->
-        <!-- icon here later -->
-      </div>
-
+      </footer>
     </div>
-
-  </div>
-
-
-    <!--footer-->
-
-    <footer id="footer">
-      <i class="social-icon fab fa-facebook-f"></i>
-      <i class="social-icon fab fa-instagram"></i>
-      <i class="social-icon fab fa-twitter"></i>
-      <i class="social-icon fab fa-github"></i>
-
-      <p>made with ❤️ Ajil</p>
-
-    </footer>
-
-
-  <script src="apptest.js"></script>
-<script>
-$(document).ready(function(){
-$("button").click(function(){
-
-  //get city value
-  const city = cityForm.city.value.trim();
-  cityForm.reset();
-
-
-   //update the ui with new city
-updateCity(city)
-.then(data => updateUI(data))
-.catch(err => console.log(err));
-});
-});
-</script>
-
+  </section>
 </body>
 
 </html>
