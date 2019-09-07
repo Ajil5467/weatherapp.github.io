@@ -1,89 +1,90 @@
 
-const key = 'gZGBwRlosDVd1Vbepcs0Z8SakQGWdygt';
+// Created by A J I L
 
 
-// get weather information
-const getWeather = async (id) => {
-const base ='http://dataservice.accuweather.com/currentconditions/v1/';
-const query =`${id}?apikey=${key}`;
-const response = await fetch(base + query);
-const data = await response.json();
-
-return data[0];
-};
-
-
-// get city information
-const getCity = async (city) => {
-    const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-  const query = `?apikey=${key}&q=${city}`;
-
-  const response = await fetch(base + query);
-  const data = await response.json();
-
-  return data[0];
-
-};
-
-//  getCity('mumbai').then(data => {
-//   return getWeather(data.Key)
-// }).then(data =>{
-//   console.log(data);
-// }).catch(err => console.log(err));
+window.onload = function() {
+  $("button").click(function() {
 
 
 
-const cityForm = document.querySelector('form');
-const card = document.querySelector('.card');
-const details = document.querySelector('.details');
-const time = document.querySelector('img.time');
-const icon = document.querySelector('.icon img');
+    const city = cityForm.city.value.trim();
+    cityForm.reset();
+
+    updateCity(city)
+      .then(data => updateUI(data))
+      .catch(err => console.log(err));
+  });
+
+  const key ='   fIHLN494JvKW5fi3mUjYdbKq0ATzGhAa   ';
+
+
+  const getWeather = async (id) => {
+    const base = 'https://dataservice.accuweather.com/currentconditions/v1/';
+    const query = `${id}?apikey=${key}`;
+    const response = await fetch(base + query);
+    const data = await response.json();
+
+    return data[0];
+  };
+
+  const getCity = async (city) => {
+    const base = 'https://dataservice.accuweather.com/locations/v1/cities/search';
+    const query = `?apikey=${key}&q=${city}`;
+
+    const response = await fetch(base + query);
+    const data = await response.json();
+
+    return data[0];
+
+  };
+
+  //  getCity('mumbai').then(data => {
+  //   return getWeather(data.Key)
+  // }).then(data =>{
+  //   console.log(data);
+  // }).catch(err => console.log(err));
 
 
 
-const updateUI = (data) => {
+  const cityForm = document.querySelector('form');
+  const card = document.querySelector('.card');
+  const details = document.querySelector('.details');
+  const time = document.querySelector('img.time');
+  const icon = document.querySelector('.icon img');
 
-  const cityDets = data.cityDets;
-  const weather = data.weather;
 
-    //update deatails
+  const updateUI = (data) => {
+
+    const cityDets = data.cityDets;
+    const weather = data.weather;
+
 
     details.innerHTML = `
-         <h5 class="my-3">${cityDets.EnglishName}</h5>
-         <div class="my-3">${weather.WeatherText}</div>
-         <div class="display-4 my-4">
-            <span>${weather.Temperature.Metric.Value}</span>
-            <span>&deg;C</span>
-         </div>
-    `;
+<h5 class="my-3">${cityDets.EnglishName}</h5>
+<div class="my-3">${weather.WeatherText}</div>
+<div class="display-4 my-4">
+<span>${weather.Temperature.Metric.Value}</span>
+<span>&deg;C</span>
+</div>
+`;
+
+    let timeSrc = null;
+    if (weather.IsDayTime) {
+      timeSrc = 'https://i.imgur.com/MbcC6II.jpg';
+    } else {
+      timeSrc = 'https://i.imgur.com/PKf8NXh.jpg';
+    }
+    time.setAttribute('src', timeSrc);
 
 
+    if (card.classList.contains('d-none')) {
 
+      card.classList.remove('d-none');
+    }
+    card.classList.remove('d-none');
+  };
 
-
-//weather icons.........############## NOT DISPLAYING##############...............
-
-// const iconSrc=`C:/Users/AJIL/Desktop/github/weather_app.github.io/img/icons/${weather.WeatherIcon}.svg`;
-// icon.setAttribute('src',iconSrc);
-
-let timeSrc = null;
-if(weather.IsDayTime){
-  timeSrc = 'https://i.imgur.com/MbcC6II.jpg';
-}else {
-  timeSrc = 'https://i.imgur.com/PKf8NXh.jpg';
-}
-time.setAttribute('src',timeSrc);
-
-//remove the d-none class if neccessary
-
-if(card.classList.contains('d-none')){
-
-     card.classList.remove('d-none');
-}
- card.classList.remove('d-none');
-};
-
-const updateCity = async (city) => {
+  const updateCity = async (city) => {
 
 
     const cityDets = await getCity(city);
@@ -92,21 +93,27 @@ const updateCity = async (city) => {
     return {
       cityDets,
       weather
-   };
+    };
   };
 
-cityForm.addEventListener('submit', e => {
+  if (cityForm) {
+    cityForm.addEventListener('submit', e => {
 
-  // prevent deafault action
-    e.preventDefault();
-    //get city value
-    const city = cityForm.city.value.trim();
-    cityForm.reset();
+      e.preventDefault();
+
+      const city = cityForm.city.value.trim();
+      cityForm.reset();
+
+      updateCity(city)
+        .then(data => updateUI(data))
+        .catch(err => console.log(err));
+
+    });
+  }
+}
 
 
-     //update the ui with new city
-  updateCity(city)
-  .then(data => updateUI(data))
-  .catch(err => console.log(err));
 
-});
+
+//  MI1bQmSDxCPmacEQne5bYgiPxtPYVHL0
+//      LilqHytJSOqjpbGC5MwRPvW0Mh2t2Tp6
