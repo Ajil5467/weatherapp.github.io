@@ -57,7 +57,14 @@ const updateUI = (data) => {
          </div>
     `;
 
-//update night/day icon images
+
+
+
+
+//weather icons.........############## NOT DISPLAYING##############...............
+
+// const iconSrc=`C:/Users/AJIL/Desktop/github/weather_app.github.io/img/icons/${weather.WeatherIcon}.svg`;
+// icon.setAttribute('src',iconSrc);
 
 let timeSrc = null;
 if(weather.IsDayTime){
@@ -68,6 +75,12 @@ if(weather.IsDayTime){
 time.setAttribute('src',timeSrc);
 
 //remove the d-none class if neccessary
+
+if(card.classList.contains('d-none')){
+
+     card.classList.remove('d-none');
+}
+ card.classList.remove('d-none');
 };
 
 const updateCity = async (city) => {
